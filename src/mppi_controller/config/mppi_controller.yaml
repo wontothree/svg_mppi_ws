@@ -1,4 +1,10 @@
 # system
+
+# race_stack
+control_cmd_topic: vesc/high_level/ackermann_cmd_mux/input/nav_1
+in_odom_topic: car_state/odom 
+robot_frame_id: base_link
+
 control_cmd_topic: drive
 in_reference_sdf_topic: reference_sdf
 in_odom_topic: odom
@@ -16,10 +22,7 @@ use_local_costmap: true # if true, use local costmap of grid map. Otherwise, use
 is_visualize_mppi: true
 constant_speed_mode: false
 # if true, the speed is fixed to reference_speed. Otherwise, the reference speed is determined by the waypoints.
-# NOTE: If you set localize_less_mode to true, force the constant_speed_mode to true.
-reference_speed: 1.5
-collision_rate_threshold: 1.1 # [0, 1] If the collision rate is larger than this value, robot speed cmd is set to 0.
-# stuck detection params
+# NOTE: If you set localize_less_mode control_cmd_topic: vesc/high_level/ackermann_cmd_mux/input/nav_1
 # This is currently only used in localize_less_mode.
 speed_deque_size: 10
 stuck_speed_threshold: 0.3 # [m/s]
@@ -28,7 +31,7 @@ mpc_mode: "svg_mppi" # "forward_mppi" or "reverse_mppi" or "sv_mpc" or "svg_mppi
 
 common:
   thread_num: 12
-  prediction_step_size: 15
+  prediction_step_size: 15 # default: 15
   prediction_interval: 0.05
   steer_delay: 0.025 # [s] dead time. If set enough large value, the prediction is similar to DWA planner.
   max_steer_angle: 0.45
