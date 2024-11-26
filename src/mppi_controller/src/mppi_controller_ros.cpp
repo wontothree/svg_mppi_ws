@@ -339,7 +339,8 @@ void MPPIControllerROS::timer_callback([[maybe_unused]] const ros::TimerEvent& t
                 "constant speed mode.");
         }
     }
-    control_msg_.drive.speed = speed_cmd;
+    const double VELOCITY_WEIGHT = 0.5;
+    control_msg_.drive.speed = speed_cmd * VELOCITY_WEIGHT;
 
     pub_ackermann_cmd_.publish(control_msg_);
 

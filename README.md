@@ -106,3 +106,27 @@ cd proj-svg_mppi/script
   organization={IEEE}
 }
 ```
+
+# 맵 변경하는 방법
+
+다음과 같이 구조를 만들어야 하며, map.yaml여기서 name을 map.png로 바꿔야 한다.
+
+  f1tenth_turtleship_ws
+  └── data/
+      └── map/  
+          └── <MAP_NAME> 
+              ├── map.png
+              └── map.yaml
+
+      └── reference_path
+          └── <MAP_NAME> 
+              ├── ego_ref_waypoint.csv
+              └── opp_ref_path.csv
+
+```bash
+./script/launch_simulator.sh <MAP_NAME> <NUMBER_OF_STATIC_OBSTACLE>
+
+./script/launch_controllers.sh <MAP_NAME>
+
+./reset_env.sh/reset_env.sh
+```

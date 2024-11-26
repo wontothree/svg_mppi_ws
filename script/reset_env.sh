@@ -4,7 +4,7 @@
 # rosparam set /ego_initial_x 0.7
 # rosparam set /ego_initial_y 0.0
 # rosparam set /ego_initial_theta 0.1
-rosparam set /ego_initial_x 0.0
+rosparam set /ego_initial_x 3.0
 rosparam set /ego_initial_y -1.0
 rosparam set /ego_initial_theta 3.14
 
